@@ -1,6 +1,8 @@
+from django.contrib import auth
 from django.urls import path
 
-from users.views import login, registration, profile, logout
+import users.views as users
+from users.views import login, registration, profile, logout,send_verify_mail
 
 app_name = 'users'
 
@@ -9,4 +11,5 @@ urlpatterns = [
     path('registration/', registration, name='registration'),
     path('logout/', logout, name='logout'),
     path('profile/', profile, name='profile'),
+    path('verify/<email>/<activation_key>/', users.verify,name='verify')
 ]

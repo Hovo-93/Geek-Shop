@@ -135,3 +135,18 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'users.User'
+
+DOMAIN_NAME = 'http://localhost:8088'
+
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = '25'
+EMAIL_HOST_USER = 'django@geekshop.local'
+EMAIL_HOST_PASSWORD = 'geekshop'
+EMAIL_USE_SSL = False
+
+
+#вариант python -m smtpd -n -c DebuggingServer localhost:25
+# EMAIL_HOST_USER, EMAIL_HOST_PASSWORD = None, None
+
+EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
+EMAIL_FILE_PATH = 'tmp/email-messages/'

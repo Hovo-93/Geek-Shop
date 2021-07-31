@@ -33,7 +33,7 @@ class UserListView(ListView):
 
     @method_decorator(user_passes_test(lambda u: u.is_staff))
     def dispatch(self, request, *args, **kwargs):
-        return super(UserListView, self).dispatch()
+        return super(UserListView, self).dispatch(request)
 
 
 #  @user_passes_test(lambda u: u.is_staff)
@@ -60,7 +60,7 @@ class UserCreateView(CreateView):
 
     @method_decorator(user_passes_test(lambda u: u.is_staff))
     def dispatch(self, request, *args, **kwargs):
-        return super(UserListView, self).dispatch()
+        return super(UserCreateView, self).dispatch(request,*args,**kwargs)
 
 
 # @user_passes_test(lambda u: u.is_staff)
@@ -92,7 +92,7 @@ class UserUpdateView(UpdateView):
 
     @method_decorator(user_passes_test(lambda u: u.is_staff))
     def dispatch(self, request, *args, **kwargs):
-        return super(UserListView, self).dispatch()
+        return super(UserUpdateView, self).dispatch(request)
 
 
 # @user_passes_test(lambda u: u.is_staff)
@@ -114,4 +114,4 @@ class UserDeleteView(DeleteView):
 
     @method_decorator(user_passes_test(lambda u: u.is_staff))
     def dispatch(self, request, *args, **kwargs):
-        return super(UserListView, self).dispatch()
+        return super(UserDeleteView, self).dispatch()
